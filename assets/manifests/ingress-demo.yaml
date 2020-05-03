@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: service-a
+spec:
+  rules:
+    - host: srva.example.com
+      http:
+        paths:
+          - path: /foo
+            backend:
+              serviceName: nginx-a
+              servicePort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: service-b
+spec:
+  rules:
+    - host: srvb.example.com
+      http:
+        paths:
+          - path: /foo
+            backend:
+              serviceName: nginx-b
+              servicePort: 80
